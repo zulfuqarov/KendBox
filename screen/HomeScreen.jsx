@@ -5,61 +5,22 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
-  Image,
   TextInput,
   Dimensions,
   Platform,
+  Image,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { categories, getAllProducts } from '../data/products';
 
 const { width } = Dimensions.get('window');
 
 const HomeScreen = ({ navigation }) => {
-  const featuredProducts = [
-    {
-      id: '1',
-      name: 'Təzə Alma',
-      price: '2.50',
-      image: 'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
-      seller: 'Əli Məmmədov',
-      rating: 4.8,
-    },
-    {
-      id: '2',
-      name: 'Təzə Badam',
-      price: '15.00',
-      image: 'https://images.unsplash.com/photo-1587132137056-bfbf0166836e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
-      seller: 'Məhəmməd Əliyev',
-      rating: 4.9,
-    },
-  ];
-
-  const categories = [
-    { id: '1', name: 'Meyvələr', icon: 'nutrition-outline' },
-    { id: '2', name: 'Tərəvəzlər', icon: 'leaf-outline' },
-    { id: '3', name: 'Quru Meyvələr', icon: 'nutrition-outline' },
-    { id: '4', name: 'Bal', icon: 'water-outline' },
-  ];
-
-  const recentProducts = [
-    {
-      id: '3',
-      name: 'Təzə Üzüm',
-      price: '4.50',
-      image: 'https://images.unsplash.com/photo-1515779124580-caef2806e781?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
-      seller: 'Ayşə Hüseynova',
-      rating: 4.7,
-    },
-    {
-      id: '4',
-      name: 'Təzə Pomidor',
-      price: '3.50',
-      image: 'https://images.unsplash.com/photo-1546094097-24607b921c63?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
-      seller: 'Hüseyn Əliyev',
-      rating: 4.6,
-    },
-  ];
+  // Bütün məhsulları alıb reytinqə görə sıralayırıq
+  const topRatedProducts = getAllProducts()
+    .sort((a, b) => b.rating - a.rating)
+    .slice(0, 4); // İlk 4 ən yüksək reytinqli məhsulu götürürük
 
   return (
     <SafeAreaView style={styles.container}>
@@ -91,10 +52,10 @@ const HomeScreen = ({ navigation }) => {
           />
         </View>
 
-        {/* Featured Products Section */}
+        {/* Top Rated Products Section */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Seçilmiş Məhsullar</Text>
+            <Text style={styles.sectionTitle}>Ən Yaxşı Məhsullar</Text>
             <TouchableOpacity>
               <Text style={styles.seeAllText}>Hamısına Bax</Text>
             </TouchableOpacity>
@@ -104,7 +65,7 @@ const HomeScreen = ({ navigation }) => {
             showsHorizontalScrollIndicator={false}
             style={styles.featuredContainer}
           >
-            {featuredProducts.map((product) => (
+            {topRatedProducts.map((product) => (
               <TouchableOpacity
                 key={product.id}
                 style={styles.featuredCard}
@@ -135,7 +96,11 @@ const HomeScreen = ({ navigation }) => {
           <Text style={styles.sectionTitle}>Kateqoriyalar</Text>
           <View style={styles.categoriesContainer}>
             {categories.map((category) => (
-              <TouchableOpacity key={category.id} style={styles.categoryCard}>
+              <TouchableOpacity 
+                key={category.id} 
+                style={styles.categoryCard}
+                onPress={() => navigation.navigate('Category', { category })}
+              >
                 <View style={styles.categoryIconContainer}>
                   <Ionicons name={category.icon} size={24} color="#2E7D32" />
                 </View>
@@ -143,39 +108,6 @@ const HomeScreen = ({ navigation }) => {
               </TouchableOpacity>
             ))}
           </View>
-        </View>
-
-        {/* Recent Products Section */}
-        <View style={styles.section}>
-          <View style={styles.sectionHeader}>
-            <Text style={styles.sectionTitle}>Son Əlavə Olunanlar</Text>
-            <TouchableOpacity>
-              <Text style={styles.seeAllText}>Hamısına Bax</Text>
-            </TouchableOpacity>
-          </View>
-          {recentProducts.map((product) => (
-            <TouchableOpacity
-              key={product.id}
-              style={styles.recentCard}
-              onPress={() => navigation.navigate('ProductDetail', { product })}
-            >
-              <Image 
-                source={{ uri: product.image }} 
-                style={styles.recentImage}
-              />
-              <View style={styles.recentInfo}>
-                <Text style={styles.recentName}>{product.name}</Text>
-                <Text style={styles.recentSeller}>{product.seller}</Text>
-                <View style={styles.recentBottom}>
-                  <Text style={styles.recentPrice}>{product.price} ₼</Text>
-                  <View style={styles.ratingContainer}>
-                    <Ionicons name="star" size={16} color="#FFD700" />
-                    <Text style={styles.ratingText}>{product.rating}</Text>
-                  </View>
-                </View>
-              </View>
-            </TouchableOpacity>
-          ))}
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -291,14 +223,6 @@ const styles = StyleSheet.create({
   featuredImage: {
     width: '100%',
     height: '100%',
-    ...Platform.select({
-      ios: {
-        resizeMode: 'cover',
-      },
-      android: {
-        resizeMode: 'cover',
-      },
-    }),
   },
   featuredOverlay: {
     position: 'absolute',
@@ -312,8 +236,6 @@ const styles = StyleSheet.create({
   },
   featuredInfo: {
     flexDirection: 'column',
-    // backgroundColor: 'rgba(0,0,0,0.7)',
-    // padding: 12,
     borderRadius: 8,
   },
   featuredName: {
@@ -336,11 +258,6 @@ const styles = StyleSheet.create({
     paddingVertical: 4,
     borderRadius: 12,
     alignSelf: 'flex-start',
-    ...Platform.select({
-      ios: {
-        backgroundColor: 'rgba(0, 0, 0, 0.7)',
-      },
-    }),
   },
   ratingText: {
     fontSize: 14,
@@ -352,7 +269,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
-    marginTop: 8,
   },
   categoryCard: {
     width: (width - 48) / 2,
@@ -387,82 +303,6 @@ const styles = StyleSheet.create({
     color: '#333',
     fontWeight: '600',
     textAlign: 'center',
-  },
-  recentCard: {
-    flexDirection: 'row',
-    backgroundColor: '#FFFFFF',
-    borderRadius: 16,
-    marginBottom: 16,
-    overflow: 'hidden',
-    ...Platform.select({
-      ios: {
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
-      },
-      android: {
-        elevation: 3,
-      },
-    }),
-  },
-  recentImage: {
-    width: 120,
-    height: 120,
-    ...Platform.select({
-      ios: {
-        resizeMode: 'cover',
-      },
-      android: {
-        resizeMode: 'cover',
-      },
-    }),
-  },
-  recentInfo: {
-    flex: 1,
-    padding: 12,
-    justifyContent: 'space-between',
-    ...Platform.select({
-      ios: {
-        backgroundColor: '#FFFFFF',
-      },
-    }),
-  },
-  recentName: {
-    fontSize: 16,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 4,
-    ...Platform.select({
-      ios: {
-        fontWeight: '600',
-      },
-    }),
-  },
-  recentSeller: {
-    fontSize: 14,
-    color: '#666',
-    marginBottom: 8,
-    ...Platform.select({
-      ios: {
-        fontWeight: '500',
-      },
-    }),
-  },
-  recentBottom: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  recentPrice: {
-    fontSize: 16,
-    color: '#2E7D32',
-    fontWeight: 'bold',
-    ...Platform.select({
-      ios: {
-        fontWeight: '600',
-      },
-    }),
   },
 });
 

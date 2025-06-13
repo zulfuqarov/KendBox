@@ -7,6 +7,7 @@ import { View } from 'react-native';
 
 // Screens
 import HomeScreen from './screen/HomeScreen';
+import CategoryScreen from './screen/CategoryScreen';
 import ProductDetailScreen from './screen/ProductDetailScreen';
 import CartScreen from './screen/CartScreen';
 import CheckoutScreen from './screen/CheckoutScreen';
@@ -25,6 +26,7 @@ const HomeStack = () => {
       }}
     >
       <Stack.Screen name="HomeMain" component={HomeScreen} />
+      <Stack.Screen name="Category" component={CategoryScreen} />
       <Stack.Screen name="ProductDetail" component={ProductDetailScreen} />
       <Stack.Screen name="Cart" component={CartScreen} />
       <Stack.Screen name="Checkout" component={CheckoutScreen} />
