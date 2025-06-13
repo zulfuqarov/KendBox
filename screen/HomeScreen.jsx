@@ -71,8 +71,8 @@ const HomeScreen = ({ navigation }) => {
                 style={styles.featuredCard}
                 onPress={() => navigation.navigate('ProductDetail', { product })}
               >
-                <Image 
-                  source={{ uri: product.image }} 
+                <Image
+                  source={{ uri: product.image }}
                   style={styles.featuredImage}
                   resizeMode="cover"
                 />
@@ -96,8 +96,8 @@ const HomeScreen = ({ navigation }) => {
           <Text style={styles.sectionTitle}>Kateqoriyalar</Text>
           <View style={styles.categoriesContainer}>
             {categories.map((category) => (
-              <TouchableOpacity 
-                key={category.id} 
+              <TouchableOpacity
+                key={category.id}
                 style={styles.categoryCard}
                 onPress={() => navigation.navigate('Category', { category })}
               >
@@ -191,6 +191,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     color: '#333',
+    paddingBottom: 20
   },
   seeAllText: {
     fontSize: 14,

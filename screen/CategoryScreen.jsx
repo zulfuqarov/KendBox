@@ -99,8 +99,8 @@ const CategoryScreen = ({ route, navigation }) => {
                 style={styles.topRatedCard}
                 onPress={() => navigation.navigate('ProductDetail', { product })}
               >
-                <Image 
-                  source={{ uri: product.image }} 
+                <Image
+                  source={{ uri: product.image }}
                   style={styles.topRatedImage}
                   resizeMode="cover"
                 />
@@ -277,7 +277,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   productsContainer: {
-    padding: 16,
+    paddingVertical: 16,
   },
   productCard: {
     flexDirection: 'row',
