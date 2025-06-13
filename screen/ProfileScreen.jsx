@@ -16,7 +16,7 @@ const ProfileScreen = ({ navigation }) => {
     email: 'ali@example.com',
     phone: '+994 50 123 45 67',
     address: 'Bakı şəhəri, Nərimanov rayonu',
-    avatar: 'https://via.placeholder.com/150',
+    avatar: 'https://img.freepik.com/free-photo/portrait-businessman-office-2_1262-1488.jpg',
   };
 
   const menuItems = [

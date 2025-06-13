@@ -25,14 +25,7 @@ const MyProductsScreen = ({ navigation }) => {
       price: '15.00',
       stock: 30,
       image: 'https://images.unsplash.com/photo-1587132137056-bfbf0166836e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
-    },
-    {
-      id: '3',
-      name: 'Təzə Üzüm',
-      price: '4.50',
-      stock: 25,
-      image: 'https://images.unsplash.com/photo-1515779124580-caef2806e781?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
-    },
+    }
   ];
 
   return (
