@@ -52,26 +52,25 @@ const CategoryScreen = ({ route, navigation }) => {
         <View style={styles.placeholder} />
       </View>
 
-      <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
-        {/* Subcategories */}
+      <View style={styles.subcategoriesWrapper}>
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
-          style={styles.subcategoriesContainer}
+          contentContainerStyle={styles.subcategoriesContainer}
         >
           {category.subcategories.map((subcategory) => (
             <TouchableOpacity
               key={subcategory.id}
               style={[
                 styles.subcategoryButton,
-                selectedSubcategory?.id === subcategory.id && styles.selectedSubcategory,
+                selectedSubcategory?.id === subcategory.id && styles.selectedSubcategoryButton,
               ]}
               onPress={() => handleSubcategoryPress(subcategory)}
             >
               <Text
                 style={[
-                  styles.subcategoryText,
-                  selectedSubcategory?.id === subcategory.id && styles.selectedSubcategoryText,
+                  styles.subcategoryButtonText,
+                  selectedSubcategory?.id === subcategory.id && styles.selectedSubcategoryButtonText,
                 ]}
               >
                 {subcategory.name}
@@ -79,7 +78,9 @@ const CategoryScreen = ({ route, navigation }) => {
             </TouchableOpacity>
           ))}
         </ScrollView>
+      </View>
 
+      <ScrollView style={styles.content} showsVerticalScrollIndicator={false}>
         {/* Top Rated Products Section */}
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
@@ -183,8 +184,14 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
   },
+  subcategoriesWrapper: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#F0F0F0',
+    backgroundColor: '#FFFFFF',
+  },
   subcategoriesContainer: {
-    padding: 16,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
   },
   subcategoryButton: {
     paddingHorizontal: 20,
@@ -192,16 +199,19 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: '#F5F5F5',
     marginRight: 12,
+    borderWidth: 1,
+    borderColor: '#E0E0E0',
   },
-  selectedSubcategory: {
+  selectedSubcategoryButton: {
     backgroundColor: '#2E7D32',
+    borderColor: '#2E7D32',
   },
-  subcategoryText: {
+  subcategoryButtonText: {
     fontSize: 14,
     color: '#666',
     fontWeight: '500',
   },
-  selectedSubcategoryText: {
+  selectedSubcategoryButtonText: {
     color: '#FFFFFF',
   },
   section: {
