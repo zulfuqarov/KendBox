@@ -85,7 +85,7 @@ const CategoryScreen = ({ route, navigation }) => {
         <View style={styles.section}>
           <View style={styles.sectionHeader}>
             <Text style={styles.sectionTitle}>Ən Yaxşı Məhsullar</Text>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => navigation.navigate('AllProducts')}>
               <Text style={styles.seeAllText}>Hamısına Bax</Text>
             </TouchableOpacity>
           </View>

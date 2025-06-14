@@ -3,15 +3,25 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableOpacity,
-  ScrollView,
   Image,
+  ScrollView,
+  TouchableOpacity,
+  Dimensions,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
+const { width } = Dimensions.get('window');
+
 const ProductDetailScreen = ({ route, navigation }) => {
   const { product } = route.params;
+  const [quantity, setQuantity] = React.useState(1);
+
+  const handleQuantityChange = (value) => {
+    if (value >= 1 && value <= product.stock) {
+      setQuantity(value);
+    }
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -22,40 +32,64 @@ const ProductDetailScreen = ({ route, navigation }) => {
         >
           <Ionicons name="arrow-back" size={24} color="#333" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.shareButton}>
-          <Ionicons name="share-outline" size={24} color="#333" />
-        </TouchableOpacity>
+        <Text style={styles.headerTitle}>Məhsul Haqqında</Text>
+        <View style={styles.placeholder} />
       </View>
 
       <ScrollView style={styles.content}>
-        <Image source={{ uri: product.image }} style={styles.productImage} />
+        <Image
+          source={{ uri: product.image }}
+          style={styles.productImage}
+          resizeMode="cover"
+        />
 
-        <View style={styles.productInfo}>
-          <Text style={styles.productName}>{product.name}</Text>
-          <Text style={styles.productPrice}>{product.price} ₼</Text>
-
-          <View style={styles.sellerInfo}>
-            <Ionicons name="person-outline" size={20} color="#666" />
-            <Text style={styles.sellerName}>{product.seller}</Text>
+        <View style={styles.detailsContainer}>
+          <View style={styles.titleContainer}>
+            <Text style={styles.productName}>{product.name}</Text>
+            <Text style={styles.productPrice}>{product.price} ₼</Text>
           </View>
 
-          <View style={styles.descriptionContainer}>
-            <Text style={styles.descriptionTitle}>Məhsul Haqqında</Text>
-            <Text style={styles.descriptionText}>
-              Bu məhsul təbii şəraitdə yetişdirilmiş, kimyəvi maddələrdən istifadə edilmədən istehsal olunmuşdur. 
-              Təzə və keyfiyyətli məhsullarımızı sizə təqdim edirik.
-            </Text>
+          <View style={styles.infoRow}>
+            <View style={styles.infoItem}>
+              <Ionicons name="star" size={20} color="#FFD700" />
+              <Text style={styles.infoText}>{product.rating}</Text>
+            </View>
+            <View style={styles.infoItem}>
+              <Ionicons name="cube-outline" size={20} color="#666" />
+              <Text style={styles.infoText}>{product.stock} {product.unit}</Text>
+            </View>
           </View>
 
-          <View style={styles.quantityContainer}>
-            <Text style={styles.quantityTitle}>Miqdar</Text>
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Satıcı</Text>
+            <Text style={styles.sectionText}>{product.seller}</Text>
+          </View>
+
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Ünvan</Text>
+            <Text style={styles.sectionText}>{product.address}</Text>
+          </View>
+
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Təsvir</Text>
+            <Text style={styles.sectionText}>{product.description}</Text>
+          </View>
+
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Miqdar</Text>
             <View style={styles.quantitySelector}>
-              <TouchableOpacity style={styles.quantityButton}>
-                <Ionicons name="remove" size={20} color="#333" />
+              <TouchableOpacity 
+                style={styles.quantityButton}
+                onPress={() => handleQuantityChange(quantity - 1)}
+              >
+                <Ionicons name="remove" size={20} color="#666" />
               </TouchableOpacity>
-              <Text style={styles.quantityText}>1</Text>
-              <TouchableOpacity style={styles.quantityButton}>
-                <Ionicons name="add" size={20} color="#333" />
+              <Text style={styles.quantityText}>{quantity} {product.unit}</Text>
+              <TouchableOpacity 
+                style={styles.quantityButton}
+                onPress={() => handleQuantityChange(quantity + 1)}
+              >
+                <Ionicons name="add" size={20} color="#666" />
               </TouchableOpacity>
             </View>
           </View>
@@ -65,11 +99,7 @@ const ProductDetailScreen = ({ route, navigation }) => {
       <View style={styles.footer}>
         <TouchableOpacity style={styles.addToCartButton}>
           <Ionicons name="cart-outline" size={24} color="#FFFFFF" />
-          <Text style={styles.addToCartButtonText}>Səbətə Əlavə Et</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.buyNowButton}>
-          <Ionicons name="bag-outline" size={24} color="#FFFFFF" />
-          <Text style={styles.buyNowButtonText}>İndi Al</Text>
+          <Text style={styles.addToCartText}>Səbətə Əlavə Et</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -83,26 +113,35 @@ const styles = StyleSheet.create({
   },
   header: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
+    justifyContent: 'space-between',
     padding: 16,
-    backgroundColor: '#FFFFFF',
+    borderBottomWidth: 1,
+    borderBottomColor: '#F0F0F0',
   },
   backButton: {
     padding: 8,
   },
-  shareButton: {
-    padding: 8,
+  headerTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#333',
+  },
+  placeholder: {
+    width: 40,
   },
   content: {
     flex: 1,
   },
   productImage: {
-    width: '100%',
-    height: 300,
+    width: width,
+    height: width,
   },
-  productInfo: {
+  detailsContainer: {
     padding: 16,
+  },
+  titleContainer: {
+    marginBottom: 16,
   },
   productName: {
     fontSize: 24,
@@ -114,40 +153,34 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#2E7D32',
     fontWeight: 'bold',
-    marginBottom: 16,
   },
-  sellerInfo: {
+  infoRow: {
+    flexDirection: 'row',
+    marginBottom: 24,
+  },
+  infoItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 24,
+    marginRight: 24,
   },
-  sellerName: {
+  infoText: {
+    marginLeft: 4,
     fontSize: 16,
     color: '#666',
-    marginLeft: 8,
   },
-  descriptionContainer: {
+  section: {
     marginBottom: 24,
   },
-  descriptionTitle: {
+  sectionTitle: {
     fontSize: 18,
     fontWeight: 'bold',
     color: '#333',
     marginBottom: 8,
   },
-  descriptionText: {
+  sectionText: {
     fontSize: 16,
     color: '#666',
     lineHeight: 24,
-  },
-  quantityContainer: {
-    marginBottom: 24,
-  },
-  quantityTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 8,
   },
   quantitySelector: {
     flexDirection: 'row',
@@ -168,39 +201,20 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   footer: {
-    flexDirection: 'row',
     padding: 16,
-    backgroundColor: '#FFFFFF',
     borderTopWidth: 1,
     borderTopColor: '#F0F0F0',
+    backgroundColor: '#FFFFFF',
   },
   addToCartButton: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
     backgroundColor: '#2E7D32',
-    padding: 16,
-    borderRadius: 8,
-    marginRight: 8,
-  },
-  addToCartButtonText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: 'bold',
-    marginLeft: 8,
-  },
-  buyNowButton: {
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#1B5E20',
     padding: 16,
     borderRadius: 8,
-    marginLeft: 8,
   },
-  buyNowButtonText: {
+  addToCartText: {
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: 'bold',

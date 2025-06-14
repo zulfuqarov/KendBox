@@ -17,7 +17,8 @@ export const categories = [
             "seller": "Əli Məmmədov",
             "rating": 4.8,
             "stock": 100,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -34,7 +35,8 @@ export const categories = [
             "seller": "Məhəmməd Əliyev",
             "rating": 4.9,
             "stock": 80,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -51,7 +53,8 @@ export const categories = [
             "seller": "Zaur Nəsibov",
             "rating": 4.7,
             "stock": 120,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -68,7 +71,8 @@ export const categories = [
             "seller": "Leyla Hüseynova",
             "rating": 4.6,
             "stock": 90,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       }
@@ -92,7 +96,8 @@ export const categories = [
             "seller": "Hüseyn Əliyev",
             "rating": 4.6,
             "stock": 150,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -109,7 +114,8 @@ export const categories = [
             "seller": "Zahra Quliyeva",
             "rating": 4.7,
             "stock": 200,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -126,7 +132,8 @@ export const categories = [
             "seller": "Rəşad Məmmədli",
             "rating": 4.5,
             "stock": 130,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -143,7 +150,8 @@ export const categories = [
             "seller": "Aynur Rəhimova",
             "rating": 4.8,
             "stock": 100,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       }
@@ -167,7 +175,8 @@ export const categories = [
             "seller": "Ayşə Hüseynova",
             "rating": 4.7,
             "stock": 50,
-            "unit": "litr"
+            "unit": "litr",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -184,7 +193,8 @@ export const categories = [
             "seller": "Musa İsmayılov",
             "rating": 4.8,
             "stock": 30,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -201,7 +211,8 @@ export const categories = [
             "seller": "Səidə Əliyeva",
             "rating": 4.6,
             "stock": 40,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -218,7 +229,8 @@ export const categories = [
             "seller": "Zaur Qasımov",
             "rating": 4.5,
             "stock": 60,
-            "unit": "litr"
+            "unit": "litr",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -235,7 +247,8 @@ export const categories = [
             "seller": "Leyla Nəbiyeva",
             "rating": 4.9,
             "stock": 70,
-            "unit": "litr"
+            "unit": "litr",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       }
@@ -259,7 +272,8 @@ export const categories = [
             "seller": "Məhəmməd Əliyev",
             "rating": 4.9,
             "stock": 20,
-            "unit": "ədəd"
+            "unit": "ədəd",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -276,7 +290,8 @@ export const categories = [
             "seller": "Əli Məmmədov",
             "rating": 4.8,
             "stock": 30,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -293,7 +308,8 @@ export const categories = [
             "seller": "Rauf Quliyev",
             "rating": 4.7,
             "stock": 25,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -310,7 +326,8 @@ export const categories = [
             "seller": "Faiq Abbasov",
             "rating": 4.9,
             "stock": 15,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -327,7 +344,8 @@ export const categories = [
             "seller": "Elşad Nəbiyev",
             "rating": 4.6,
             "stock": 10,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       }
@@ -351,7 +369,8 @@ export const categories = [
             "seller": "Hüseyn Əliyev",
             "rating": 4.7,
             "stock": 500,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -368,7 +387,8 @@ export const categories = [
             "seller": "Məhəmməd Əliyev",
             "rating": 4.6,
             "stock": 400,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -385,7 +405,8 @@ export const categories = [
             "seller": "Elşad Nəbiyev",
             "rating": 4.8,
             "stock": 200,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -402,7 +423,8 @@ export const categories = [
             "seller": "Nigar Qasımova",
             "rating": 4.5,
             "stock": 300,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       }
@@ -426,7 +448,8 @@ export const categories = [
             "seller": "Ayşə Hüseynova",
             "rating": 4.8,
             "stock": 200,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -443,7 +466,8 @@ export const categories = [
             "seller": "Əli Məmmədov",
             "rating": 4.7,
             "stock": 150,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -460,7 +484,8 @@ export const categories = [
             "seller": "Zəkiyə Quliyeva",
             "rating": 4.9,
             "stock": 180,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -477,7 +502,8 @@ export const categories = [
             "seller": "Rauf Həsənov",
             "rating": 4.6,
             "stock": 120,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       }
@@ -501,7 +527,8 @@ export const categories = [
             "seller": "Məhəmməd Əliyev",
             "rating": 4.9,
             "stock": 50,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           },
           {
             "id": "7-1-2",
@@ -512,7 +539,8 @@ export const categories = [
             "seller": "Rauf Quliyev",
             "rating": 4.8,
             "stock": 40,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -529,7 +557,8 @@ export const categories = [
             "seller": "Hüseyn Əliyev",
             "rating": 4.8,
             "stock": 20,
-            "unit": "qram"
+            "unit": "qram",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -546,7 +575,8 @@ export const categories = [
             "seller": "Səid Əliyev",
             "rating": 4.6,
             "stock": 60,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       }
@@ -570,7 +600,8 @@ export const categories = [
             "seller": "Ayşə Hüseynova",
             "rating": 4.7,
             "stock": 100,
-            "unit": "ədəd"
+            "unit": "ədəd",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           },
           {
             "id": "8-1-2",
@@ -581,7 +612,8 @@ export const categories = [
             "seller": "Rauf Quliyev",
             "rating": 4.9,
             "stock": 60,
-            "unit": "ədəd"
+            "unit": "ədəd",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -598,7 +630,8 @@ export const categories = [
             "seller": "Əli Məmmədov",
             "rating": 4.8,
             "stock": 50,
-            "unit": "ədəd"
+            "unit": "ədəd",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -615,7 +648,8 @@ export const categories = [
             "seller": "Səid Əliyev",
             "rating": 4.6,
             "stock": 30,
-            "unit": "ədəd"
+            "unit": "ədəd",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           },
           {
             "id": "8-3-2",
@@ -626,7 +660,8 @@ export const categories = [
             "seller": "Zəkiyyə Məmmədova",
             "rating": 4.7,
             "stock": 20,
-            "unit": "ədəd"
+            "unit": "ədəd",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       }
@@ -650,7 +685,8 @@ export const categories = [
             "seller": "Məhəmməd Əliyev",
             "rating": 4.7,
             "stock": 300,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           },
           {
             "id": "9-1-2",
@@ -661,7 +697,8 @@ export const categories = [
             "seller": "Rövşən Məmmədov",
             "rating": 4.9,
             "stock": 150,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -678,7 +715,8 @@ export const categories = [
             "seller": "Hüseyn Əliyev",
             "rating": 4.8,
             "stock": 200,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -695,7 +733,8 @@ export const categories = [
             "seller": "Elçin Həsənov",
             "rating": 4.6,
             "stock": 100,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           },
           {
             "id": "9-3-2",
@@ -706,7 +745,8 @@ export const categories = [
             "seller": "Nurlana Quliyeva",
             "rating": 4.7,
             "stock": 80,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       }
@@ -730,7 +770,8 @@ export const categories = [
             "seller": "Ayşə Hüseynova",
             "rating": 4.7,
             "stock": 100,
-            "unit": "litr"
+            "unit": "litr",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           },
           {
             "id": "10-1-2",
@@ -741,7 +782,8 @@ export const categories = [
             "seller": "Fərid Məmmədov",
             "rating": 4.8,
             "stock": 50,
-            "unit": "litr"
+            "unit": "litr",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           },
           {
             "id": "10-3-2",
@@ -752,7 +794,8 @@ export const categories = [
             "seller": "Nigar Hüseynova",
             "rating": 4.9,
             "stock": 60,
-            "unit": "litr"
+            "unit": "litr",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
@@ -769,7 +812,8 @@ export const categories = [
             "seller": "Əli Məmmədov",
             "rating": 4.8,
             "stock": 50,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           },
           {
             "id": "10-2-2",
@@ -780,7 +824,8 @@ export const categories = [
             "seller": "Leyla Quliyeva",
             "rating": 4.9,
             "stock": 30,
-            "unit": "kq"
+            "unit": "kq",
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
           }
         ]
       },
