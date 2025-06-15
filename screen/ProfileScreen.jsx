@@ -21,7 +21,7 @@ const ProfileScreen = ({ navigation }) => {
 
   const menuItems = [
     { icon: 'person-outline', title: 'Şəxsi Məlumatlar', screen: 'EditProfile' },
-    { icon: 'location-outline', title: 'Ünvanlarım', screen: 'Addresses' },
+    // { icon: 'location-outline', title: 'Ünvanlarım', screen: 'Addresses' },
     { icon: 'card-outline', title: 'Ödəniş Üsulları', screen: 'PaymentMethods' },
     { icon: 'time-outline', title: 'Sifariş Tarixçəsi', screen: 'OrderHistory' },
     { icon: 'settings-outline', title: 'Tənzimləmələr', screen: 'Settings' },
@@ -51,7 +51,10 @@ const ProfileScreen = ({ navigation }) => {
           {menuItems.map((item, index) => (
             <TouchableOpacity
               key={index}
-              style={styles.menuItem}
+              style={[
+                styles.menuItem,
+                index !== menuItems.length - 1 && styles.menuItemWithBorder
+              ]}
               onPress={() => navigation.navigate(item.screen)}
             >
               <View style={styles.menuItemLeft}>
@@ -83,6 +86,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 16,
     backgroundColor: '#FFFFFF',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E0E0E0',
   },
   headerTitle: {
     fontSize: 24,
@@ -98,8 +103,10 @@ const styles = StyleSheet.create({
   profileSection: {
     alignItems: 'center',
     padding: 24,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#FFFFFF',
     marginBottom: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E0E0E0',
   },
   avatar: {
     width: 120,
@@ -118,27 +125,20 @@ const styles = StyleSheet.create({
     color: '#666',
     marginBottom: 16,
   },
-  editProfileButton: {
-    backgroundColor: '#2E7D32',
-    paddingHorizontal: 24,
-    paddingVertical: 12,
-    borderRadius: 8,
-  },
-  editProfileButtonText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
   menuSection: {
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#FFFFFF',
     borderRadius: 12,
     margin: 16,
+    borderWidth: 1,
+    borderColor: '#E0E0E0',
   },
   menuItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 16,
+  },
+  menuItemWithBorder: {
     borderBottomWidth: 1,
     borderBottomColor: '#E0E0E0',
   },
@@ -155,10 +155,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#FFFFFF',
     margin: 16,
     padding: 16,
     borderRadius: 12,
+    borderWidth: 1,
+    borderColor: '#E0E0E0',
   },
   logoutButtonText: {
     color: '#FF5252',

@@ -20,6 +20,7 @@ import EditProfileScreen from './screen/EditProfileScreen';
 import OrderHistoryScreen from './screen/OrderHistoryScreen';
 import SettingsScreen from './screen/SettingsScreen';
 import AddressesScreen from './screen/AddressesScreen';
+import HelpScreen from './screen/HelpScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -66,7 +67,8 @@ const ProfileStack = () => {
       <Stack.Screen name="EditProfile" component={EditProfileScreen} />
       <Stack.Screen name="OrderHistory" component={OrderHistoryScreen} />
       <Stack.Screen name="Settings" component={SettingsScreen} />
-      {/* <Stack.Screen name="Addresses" component={AddressesScreen} /> */}
+      <Stack.Screen name="Addresses" component={AddressesScreen} />
+      <Stack.Screen name="Help" component={HelpScreen} />
     </Stack.Navigator>
   );
 };
