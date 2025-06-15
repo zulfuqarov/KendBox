@@ -881,6 +881,19 @@ export const getProductsBySubcategory = (subcategoryId) => {
   return [];
 };
 
+export const getProductsBySeller = (seller) => {
+  const products = categories.flatMap(category =>
+    category.subcategories.flatMap(subcategory =>
+      subcategory.products.filter(user => user.userUid === seller).map(product => ({
+        ...product,
+        category: category.name,
+        subcategory: subcategory.name
+      }))
+    )
+  );
+  return products;
+}
+
 // export const getProductsBySeller = (seller) => {
 //   let products = [];
 
@@ -902,15 +915,3 @@ export const getProductsBySubcategory = (subcategoryId) => {
 // };
 
 
-export const getProductsBySeller = (seller) => {
-  const products = categories.flatMap(category =>
-    category.subcategories.flatMap(subcategory =>
-      subcategory.products.filter(user => user.userUid === seller).map(product => ({
-        ...product,
-        category: category.name,
-        subcategory: subcategory.name
-      }))
-    )
-  );
-  return products;
-}
