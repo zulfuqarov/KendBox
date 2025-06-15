@@ -18,7 +18,8 @@ export const categories = [
             "rating": 4.8,
             "stock": 100,
             "unit": "kq",
-            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45",
+            "userUid": "user123"
           }
         ]
       },
@@ -36,7 +37,8 @@ export const categories = [
             "rating": 4.9,
             "stock": 80,
             "unit": "kq",
-            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45",
+            "userUid": "user123"
           }
         ]
       },
@@ -54,7 +56,8 @@ export const categories = [
             "rating": 4.7,
             "stock": 120,
             "unit": "kq",
-            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45",
+            "userUid": "user789"
           }
         ]
       },
@@ -72,7 +75,8 @@ export const categories = [
             "rating": 4.6,
             "stock": 90,
             "unit": "kq",
-            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45",
+            "userUid": "user101"
           }
         ]
       }
@@ -97,7 +101,8 @@ export const categories = [
             "rating": 4.6,
             "stock": 150,
             "unit": "kq",
-            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45",
+            "userUid": "user102"
           }
         ]
       },
@@ -115,7 +120,8 @@ export const categories = [
             "rating": 4.7,
             "stock": 200,
             "unit": "kq",
-            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45",
+            "userUid": "user103"
           }
         ]
       },
@@ -133,7 +139,8 @@ export const categories = [
             "rating": 4.5,
             "stock": 130,
             "unit": "kq",
-            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45",
+            "userUid": "user104"
           }
         ]
       },
@@ -151,7 +158,8 @@ export const categories = [
             "rating": 4.8,
             "stock": 100,
             "unit": "kq",
-            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45",
+            "userUid": "user105"
           }
         ]
       }
@@ -176,7 +184,8 @@ export const categories = [
             "rating": 4.7,
             "stock": 50,
             "unit": "litr",
-            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45",
+            "userUid": "user106"
           }
         ]
       },
@@ -194,7 +203,8 @@ export const categories = [
             "rating": 4.8,
             "stock": 30,
             "unit": "kq",
-            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45",
+            "userUid": "user107"
           }
         ]
       },
@@ -212,7 +222,8 @@ export const categories = [
             "rating": 4.6,
             "stock": 40,
             "unit": "kq",
-            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45",
+            "userUid": "user108"
           }
         ]
       },
@@ -230,7 +241,8 @@ export const categories = [
             "rating": 4.5,
             "stock": 60,
             "unit": "litr",
-            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45",
+            "userUid": "user109"
           }
         ]
       },
@@ -248,7 +260,8 @@ export const categories = [
             "rating": 4.9,
             "stock": 70,
             "unit": "litr",
-            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45"
+            "address": "Bakı şəhəri, Nərimanov rayonu, Atatürk prospekti 45",
+            "userUid": "user110"
           }
         ]
       }
@@ -866,4 +879,38 @@ export const getProductsBySubcategory = (subcategoryId) => {
     }
   }
   return [];
-}; 
+};
+
+// export const getProductsBySeller = (seller) => {
+//   let products = [];
+
+//   categories.forEach(category => {
+//     category.subcategories.forEach(subcategory => {
+//       const filtered = subcategory.products
+//         .filter(product => product.userUid === seller)
+//         .map(product => ({
+//           ...product,
+//           category: category.name,
+//           subcategory: subcategory.name
+//         }));
+
+//       products.push(...filtered);
+//     });
+//   });
+
+//   return products;
+// };
+
+
+export const getProductsBySeller = (seller) => {
+  const products = categories.flatMap(category =>
+    category.subcategories.flatMap(subcategory =>
+      subcategory.products.filter(user => user.userUid === seller).map(product => ({
+        ...product,
+        category: category.name,
+        subcategory: subcategory.name
+      }))
+    )
+  );
+  return products;
+}

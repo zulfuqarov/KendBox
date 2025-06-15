@@ -9,24 +9,12 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { categories } from '../data/products';
+import { getProductsBySeller } from '../data/products';
 
 const MyProductsScreen = ({ navigation }) => {
-  const products = [
-    {
-      id: '1',
-      name: 'Təzə Alma',
-      price: '2.50',
-      stock: 50,
-      image: 'https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
-    },
-    {
-      id: '2',
-      name: 'Təzə Badam',
-      price: '15.00',
-      stock: 30,
-      image: 'https://images.unsplash.com/photo-1587132137056-bfbf0166836e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
-    }
-  ];
+ 
+  const products = getProductsBySeller("user123");
 
   return (
     <SafeAreaView style={styles.container}>
@@ -51,9 +39,9 @@ const MyProductsScreen = ({ navigation }) => {
             </View>
             <TouchableOpacity
               style={styles.editButton}
-              onPress={() => navigation.navigate('EditProduct', { product })}
+              onPress={() => navigation.navigate('EditProduct', { product: product })}
             >
-              <Ionicons name="pencil" size={24} color="#2E7D32" />
+              <Ionicons name="create-outline" size={24} color="#4CAF50" />
             </TouchableOpacity>
           </View>
         ))}

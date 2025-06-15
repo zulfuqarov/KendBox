@@ -15,6 +15,7 @@ import MyProductsScreen from './screen/MyProductsScreen';
 import AddProductScreen from './screen/AddProductScreen';
 import ProfileScreen from './screen/ProfileScreen';
 import AllProductsScreen from './screen/AllProductsScreen';
+import EditProductScreen from './screen/EditProductScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -45,6 +46,7 @@ const MyProductsStack = () => {
     >
       <Stack.Screen name="MyProductsMain" component={MyProductsScreen} />
       <Stack.Screen name="AddProduct" component={AddProductScreen} />
+      <Stack.Screen name="EditProduct" component={EditProductScreen} />
     </Stack.Navigator>
   );
 };
