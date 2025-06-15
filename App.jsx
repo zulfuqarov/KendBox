@@ -18,6 +18,8 @@ import AllProductsScreen from './screen/AllProductsScreen';
 import EditProductScreen from './screen/EditProductScreen';
 import EditProfileScreen from './screen/EditProfileScreen';
 import OrderHistoryScreen from './screen/OrderHistoryScreen';
+import SettingsScreen from './screen/SettingsScreen';
+import AddressesScreen from './screen/AddressesScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -63,6 +65,8 @@ const ProfileStack = () => {
       <Stack.Screen name="ProfileMain" component={ProfileScreen} />
       <Stack.Screen name="EditProfile" component={EditProfileScreen} />
       <Stack.Screen name="OrderHistory" component={OrderHistoryScreen} />
+      <Stack.Screen name="Settings" component={SettingsScreen} />
+      {/* <Stack.Screen name="Addresses" component={AddressesScreen} /> */}
     </Stack.Navigator>
   );
 };
