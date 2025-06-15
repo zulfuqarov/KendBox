@@ -172,7 +172,7 @@ const OrderHistoryScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#FFFFFF',
   },
   header: {
     flexDirection: 'row',
@@ -199,26 +199,26 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 16,
     marginBottom: 16,
-    elevation: 2,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 4,
+    borderWidth: 1,
+    borderColor: '#E0E0E0',
   },
   orderHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 16,
+    paddingBottom: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E0E0E0',
   },
   orderDate: {
+    fontSize: 14,
+    color: '#666',
+  },
+  orderId: {
     fontSize: 16,
     fontWeight: '600',
     color: '#333',
-  },
-  orderId: {
-    fontSize: 14,
-    color: '#666',
     marginTop: 4,
   },
   statusBadge: {
@@ -232,9 +232,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   itemsContainer: {
-    borderTopWidth: 1,
-    borderTopColor: '#E0E0E0',
-    paddingTop: 16,
+    marginBottom: 16,
   },
   itemRow: {
     flexDirection: 'row',

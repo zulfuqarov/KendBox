@@ -104,14 +104,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#FFFFFF',
   },
-  content: {
-    flex: 1,
-  },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 16,
+    backgroundColor: '#FFFFFF',
+    borderBottomWidth: 1,
+    borderBottomColor: '#E0E0E0',
   },
   backButton: {
     padding: 8,
@@ -124,9 +124,13 @@ const styles = StyleSheet.create({
   placeholder: {
     width: 40,
   },
+  content: {
+    flex: 1,
+  },
   profileSection: {
     alignItems: 'center',
     padding: 24,
+    backgroundColor: '#FFFFFF',
   },
   avatarContainer: {
     position: 'relative',
@@ -155,11 +159,13 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#FFFFFF',
     borderRadius: 12,
     marginBottom: 16,
     paddingHorizontal: 16,
     height: 56,
+    borderWidth: 1,
+    borderColor: '#E0E0E0',
   },
   inputIcon: {
     marginRight: 12,

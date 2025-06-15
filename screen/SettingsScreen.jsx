@@ -161,7 +161,7 @@ const SettingsScreen = ({ navigation }) => {
       >
         <View style={styles.settingItemLeft}>
           <Ionicons name={item.icon} size={24} color="#333" />
-          <Text style={styles.settingItemText}>{item.title}</Text>
+          <Text style={styles.settingText}>{item.title}</Text>
         </View>
         {item.type === 'switch' ? (
           <Switch
@@ -209,7 +209,9 @@ const SettingsScreen = ({ navigation }) => {
           <Text style={styles.logoutButtonText}>Çıxış</Text>
         </TouchableOpacity>
 
-        <Text style={styles.version}>Versiya 1.0.0</Text>
+        <View style={styles.versionInfo}>
+          <Text style={styles.versionText}>Versiya 1.0.0</Text>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -218,7 +220,7 @@ const SettingsScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F5',
+    backgroundColor: '#FFFFFF',
   },
   header: {
     flexDirection: 'row',
@@ -244,11 +246,10 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   sectionTitle: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: '600',
-    color: '#666',
-    marginBottom: 8,
-    marginLeft: 8,
+    color: '#333',
+    marginBottom: 16,
   },
   sectionContent: {
     backgroundColor: '#FFFFFF',
@@ -260,17 +261,22 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E0E0E0',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 12,
+    marginBottom: 12,
+    borderWidth: 1,
+    borderColor: '#E0E0E0',
   },
   settingItemLeft: {
     flexDirection: 'row',
     alignItems: 'center',
   },
-  settingItemText: {
+  settingIcon: {
+    marginRight: 16,
+  },
+  settingText: {
     fontSize: 16,
     color: '#333',
-    marginLeft: 16,
   },
   selectValue: {
     flexDirection: 'row',
@@ -296,11 +302,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginLeft: 8,
   },
-  version: {
-    textAlign: 'center',
-    color: '#666',
+  versionInfo: {
+    alignItems: 'center',
     marginTop: 24,
-    marginBottom: 16,
+    marginBottom: 24,
+  },
+  versionText: {
+    fontSize: 14,
+    color: '#666',
   },
 });
 
