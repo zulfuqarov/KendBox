@@ -31,6 +31,8 @@ const RegisterScreen = ({ navigation }) => {
 
         if (!formData.fullName.trim()) {
             newErrors.fullName = 'Ad və Soyad tələb olunur';
+        } else if (formData.fullName.trim().length < 4) {
+            newErrors.fullName = 'ən azı 4 hərf olmalıdır';
         }
 
         if (!formData.email.trim()) {
@@ -88,22 +90,22 @@ const RegisterScreen = ({ navigation }) => {
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
                 style={styles.keyboardAvoidingView}
             >
+                <View style={styles.header}>
+                    <TouchableOpacity
+                        style={styles.backButton}
+                        onPress={() => navigation.goBack()}
+                    >
+                        <Ionicons name="arrow-back" size={24} color="#333" />
+                    </TouchableOpacity>
+                    <Text style={styles.headerTitle}>Qeydiyyat</Text>
+                    <View style={styles.placeholder} />
+                </View>
+
                 <ScrollView
                     style={styles.content}
                     showsVerticalScrollIndicator={false}
                     contentContainerStyle={styles.scrollContent}
                 >
-                    <View style={styles.header}>
-                        <TouchableOpacity
-                            style={styles.backButton}
-                            onPress={() => navigation.goBack()}
-                        >
-                            <Ionicons name="arrow-back" size={24} color="#333" />
-                        </TouchableOpacity>
-                        <Text style={styles.headerTitle}>Qeydiyyat</Text>
-                        <View style={styles.placeholder} />
-                    </View>
-
                     <View style={styles.formContainer}>
                         <View style={styles.socialButtonsContainer}>
                             <TouchableOpacity
@@ -269,13 +271,6 @@ const styles = StyleSheet.create({
     keyboardAvoidingView: {
         flex: 1,
     },
-    content: {
-        flex: 1,
-    },
-    scrollContent: {
-        flexGrow: 1,
-        justifyContent: 'center',
-    },
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -285,17 +280,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
         borderBottomWidth: 1,
         borderBottomColor: '#E0E0E0',
-        ...Platform.select({
-            ios: {
-                shadowColor: '#000',
-                shadowOffset: { width: 0, height: 2 },
-                shadowOpacity: 0.1,
-                shadowRadius: 4,
-            },
-            android: {
-                elevation: 4,
-            },
-        }),
+        zIndex: 1000,
     },
     backButton: {
         padding: 8,
@@ -307,6 +292,14 @@ const styles = StyleSheet.create({
     },
     placeholder: {
         width: 40,
+    },
+    content: {
+        flex: 1,
+        backgroundColor: '#FFFFFF',
+    },
+    scrollContent: {
+        flexGrow: 1,
+        paddingBottom: 20,
     },
     formContainer: {
         flex: 1,
