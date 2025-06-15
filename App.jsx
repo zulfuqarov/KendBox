@@ -16,6 +16,7 @@ import AddProductScreen from './screen/AddProductScreen';
 import ProfileScreen from './screen/ProfileScreen';
 import AllProductsScreen from './screen/AllProductsScreen';
 import EditProductScreen from './screen/EditProductScreen';
+import EditProfileScreen from './screen/EditProfileScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -59,6 +60,7 @@ const ProfileStack = () => {
       }}
     >
       <Stack.Screen name="ProfileMain" component={ProfileScreen} />
+      <Stack.Screen name="EditProfile" component={EditProfileScreen} />
     </Stack.Navigator>
   );
 };

@@ -42,9 +42,6 @@ const ProfileScreen = ({ navigation }) => {
           <Image source={{ uri: user.avatar }} style={styles.avatar} />
           <Text style={styles.name}>{user.name}</Text>
           <Text style={styles.email}>{user.email}</Text>
-          <TouchableOpacity style={styles.editProfileButton}>
-            <Text style={styles.editProfileButtonText}>Profili Redaktə Et</Text>
-          </TouchableOpacity>
         </View>
 
         <View style={styles.menuSection}>
