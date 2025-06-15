@@ -17,6 +17,27 @@ const ProfileScreen = ({ navigation }) => {
     phone: '+994 50 123 45 67',
     address: 'Bakı şəhəri, Nərimanov rayonu',
     avatar: 'https://img.freepik.com/free-photo/portrait-businessman-office-2_1262-1488.jpg',
+    orders: [
+      {
+        id: '1',
+        date: '2024-03-15',
+        status: 'Tamamlandı',
+        total: '150 ₼',
+        items: [
+          { name: 'Təzə Alma', quantity: 2, price: '30 ₼' },
+          { name: 'Qoz', quantity: 1, price: '90 ₼' }
+        ]
+      },
+      {
+        id: '2',
+        date: '2024-03-10',
+        status: 'Gözləyir',
+        total: '85 ₼',
+        items: [
+          { name: 'Bal', quantity: 1, price: '85 ₼' }
+        ]
+      }
+    ]
   };
 
   const menuItems = [
