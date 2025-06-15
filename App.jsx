@@ -21,6 +21,7 @@ import OrderHistoryScreen from './screen/OrderHistoryScreen';
 import SettingsScreen from './screen/SettingsScreen';
 import AddressesScreen from './screen/AddressesScreen';
 import HelpScreen from './screen/HelpScreen';
+import RegisterScreen from './screen/RegisterScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -73,39 +74,52 @@ const ProfileStack = () => {
   );
 };
 
+const TabNavigator = () => {
+  return (
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        headerShown: false,
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+
+          if (route.name === 'Home') {
+            iconName = focused ? 'home' : 'home-outline';
+          } else if (route.name === 'MyProducts') {
+            iconName = focused ? 'cube' : 'cube-outline';
+          } else if (route.name === 'Profile') {
+            iconName = focused ? 'person' : 'person-outline';
+          }
+
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+        tabBarActiveTintColor: 'green',
+        tabBarInactiveTintColor: 'green',
+        tabBarStyle: {
+          backgroundColor: '#FFFFFF',
+          borderTopWidth: 1,
+          borderTopColor: '#FFFFFF',
+        },
+      })}
+    >
+      <Tab.Screen name="Home" component={HomeStack} />
+      <Tab.Screen name="MyProducts" component={MyProductsStack} />
+      <Tab.Screen name="Profile" component={ProfileStack} />
+    </Tab.Navigator>
+  );
+};
+
 const App = () => {
   return (
     <View style={{ flex: 1, backgroundColor: '#FF0000' }}>
       <NavigationContainer>
-        <Tab.Navigator
-          screenOptions={({ route }) => ({
+        <Stack.Navigator
+          screenOptions={{
             headerShown: false,
-            tabBarIcon: ({ focused, color, size }) => {
-              let iconName;
-
-              if (route.name === 'Home') {
-                iconName = focused ? 'home' : 'home-outline';
-              } else if (route.name === 'MyProducts') {
-                iconName = focused ? 'cube' : 'cube-outline';
-              } else if (route.name === 'Profile') {
-                iconName = focused ? 'person' : 'person-outline';
-              }
-
-              return <Ionicons name={iconName} size={size} color={color} />;
-            },
-            tabBarActiveTintColor: 'green',
-            tabBarInactiveTintColor: 'green',
-            tabBarStyle: {
-              backgroundColor: '#FFFFFF',
-              borderTopWidth: 1,
-              borderTopColor: '#FFFFFF',
-            },
-          })}
+          }}
         >
-          <Tab.Screen name="Home" component={HomeStack} />
-          <Tab.Screen name="MyProducts" component={MyProductsStack} />
-          <Tab.Screen name="Profile" component={ProfileStack} />
-        </Tab.Navigator>
+          <Stack.Screen name="Register" component={RegisterScreen} />
+          <Stack.Screen name="MainTabs" component={TabNavigator} />
+        </Stack.Navigator>
       </NavigationContainer>
     </View>
   );
