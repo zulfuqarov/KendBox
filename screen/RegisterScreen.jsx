@@ -354,11 +354,13 @@ const styles = StyleSheet.create({
     inputContainer: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: '#F5F5F5',
+        backgroundColor: '#FFFFFF',
         borderRadius: 8,
         marginBottom: 10,
         paddingHorizontal: 12,
         height: 50,
+        borderWidth: 1,
+        borderColor: '#E0E0E0',
     },
     inputIcon: {
         marginRight: 10,
