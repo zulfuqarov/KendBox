@@ -22,6 +22,7 @@ import SettingsScreen from './screen/SettingsScreen';
 import AddressesScreen from './screen/AddressesScreen';
 import HelpScreen from './screen/HelpScreen';
 import RegisterScreen from './screen/RegisterScreen';
+import LoginScreen from './screen/LoginScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -110,13 +111,14 @@ const TabNavigator = () => {
 
 const App = () => {
   return (
-    <View style={{ flex: 1, backgroundColor: '#FF0000' }}>
+    <View style={{ flex: 1}}>
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
             headerShown: false,
           }}
         >
+          <Stack.Screen name="Login" component={LoginScreen} />
           <Stack.Screen name="Register" component={RegisterScreen} />
           <Stack.Screen name="MainTabs" component={TabNavigator} />
         </Stack.Navigator>
