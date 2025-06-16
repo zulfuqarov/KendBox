@@ -69,12 +69,7 @@ const LoginScreen = ({ navigation }) => {
                 style={styles.keyboardAvoidingView}
             >
                 <View style={styles.header}>
-                    <TouchableOpacity
-                        style={styles.backButton}
-                        onPress={() => navigation.goBack()}
-                    >
-                        <Ionicons name="arrow-back" size={24} color="#333" />
-                    </TouchableOpacity>
+                    <View style={styles.placeholder} />
                     <Text style={styles.headerTitle}>Daxil ol</Text>
                     <View style={styles.placeholder} />
                 </View>
@@ -202,22 +197,19 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: 16,
-        paddingTop: Platform.OS === 'ios' ? 50 : 16,
+        paddingTop: Platform.OS === 'ios' ? 16 : 16,
         backgroundColor: '#FFFFFF',
         borderBottomWidth: 1,
         borderBottomColor: '#E0E0E0',
         zIndex: 1000,
     },
-    backButton: {
-        padding: 8,
+    placeholder: {
+        width: 40,
     },
     headerTitle: {
         fontSize: 20,
         fontWeight: '600',
         color: '#333',
-    },
-    placeholder: {
-        width: 40,
     },
     formContainer: {
         flex: 1,
