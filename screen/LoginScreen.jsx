@@ -222,6 +222,7 @@ const styles = StyleSheet.create({
     formContainer: {
         flex: 1,
         padding: 20,
+        justifyContent: 'center',
     },
     socialButtonsContainer: {
         flexDirection: 'row',
